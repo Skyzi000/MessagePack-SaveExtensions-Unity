@@ -1,5 +1,5 @@
 {
-    "name": "jp.skyzi.messagepack-localsave-extensions",
+    "name": "jp.skyzi.messagepack-extensions-localsave",
     "displayName": "MessagePack LocalSave Extensions",
     "description": "MessagePack for C# を使ったUnity用ローカルセーブシステムの実験的実装",
     "version": "0.2.0",

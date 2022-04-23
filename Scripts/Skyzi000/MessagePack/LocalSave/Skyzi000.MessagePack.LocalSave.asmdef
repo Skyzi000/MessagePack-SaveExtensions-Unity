@@ -1,5 +1,5 @@
 {
-    "name": "Skyzi000.MessagePack",
+    "name": "Skyzi000.MessagePack.LocalSave",
     "rootNamespace": "",
     "references": [
         "GUID:bbde805d927e795439d7a746d1749cab",

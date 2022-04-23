@@ -99,7 +99,7 @@ namespace Skyzi000.MessagePack.LocalSave
             catch (Exception e)
             {
                 // バックアップからの読み込みに失敗
-                LogException(e);
+                Log($"Failed to load from backup: {e}");
             }
 
             try

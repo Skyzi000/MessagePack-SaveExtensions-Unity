@@ -19,7 +19,7 @@
 1. Window > Package Managerを開く
 2. 左上の＋ボタンを押す
 3. "Add package from git URL..."を選択
-4. "https://github.com/Skyzi000/MessagePack-Extensions-Unity.git?path=/LocalSave"を入力
+4. `https://github.com/Skyzi000/MessagePack-Extensions-Unity.git?path=/LocalSave`を入力
 
 ## 使い方
 

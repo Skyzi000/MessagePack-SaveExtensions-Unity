@@ -1,6 +1,6 @@
-# MessagePack-Extension-Unity
+# MessagePack-Extensions-Unity
 
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/Skyzi000/MessagePack-Extensions-Unity)](https://github.com/Skyzi000/MessagePack-Extensions-Unity/tags)
+[![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/Skyzi000/MessagePack-Extensions-Unity?filename=LocalSave%2Fpackage.json&label=LocalSave)](https://github.com/Skyzi000/MessagePack-Extensions-Unity/tags)
 [![GitHub License](https://img.shields.io/github/license/Skyzi000/MessagePack-Extensions-Unity)](https://github.com/Skyzi000/MessagePack-Extensions-Unity/blob/main/LICENSE.md)
 
 [MessagePack for C#](https://github.com/neuecc/MessagePack-CSharp) を使ったUnity用セーブシステムの実験的実装。

@@ -1,7 +1,7 @@
-# MessagePack-Extensions-Unity
+# MessagePack-SaveExtensions-Unity
 
-[![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/Skyzi000/MessagePack-Extensions-Unity?filename=LocalSave%2Fpackage.json&label=LocalSave)](https://github.com/Skyzi000/MessagePack-Extensions-Unity/tags)
-[![GitHub License](https://img.shields.io/github/license/Skyzi000/MessagePack-Extensions-Unity)](https://github.com/Skyzi000/MessagePack-Extensions-Unity/blob/main/LICENSE.md)
+[![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/Skyzi000/MessagePack-SaveExtensions-Unity?filename=LocalSave%2Fpackage.json&label=LocalSave)](https://github.com/Skyzi000/MessagePack-SaveExtensions-Unity/tags)
+[![GitHub License](https://img.shields.io/github/license/Skyzi000/MessagePack-SaveExtensions-Unity)](https://github.com/Skyzi000/MessagePack-SaveExtensions-Unity/blob/main/LICENSE.md)
 
 [MessagePack for C#](https://github.com/neuecc/MessagePack-CSharp) を使ったUnity用セーブシステムの実験的実装。
 
@@ -19,7 +19,7 @@
 1. Window > Package Managerを開く
 2. 左上の＋ボタンを押す
 3. "Add package from git URL..."を選択
-4. `https://github.com/Skyzi000/MessagePack-Extensions-Unity.git?path=/LocalSave`を入力
+4. `https://github.com/Skyzi000/MessagePack-SaveExtensions-Unity.git`を入力
 
 ## 使い方
 

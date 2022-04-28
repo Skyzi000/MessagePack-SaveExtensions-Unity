@@ -1,4 +1,4 @@
-# MessagePack-SaveExtensions-Unity
+# MessagePack SaveExtensions Unity
 
 [![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/Skyzi000/MessagePack-SaveExtensions-Unity?filename=LocalSave%2Fpackage.json&label=LocalSave)](https://github.com/Skyzi000/MessagePack-SaveExtensions-Unity/tags)
 [![GitHub License](https://img.shields.io/github/license/Skyzi000/MessagePack-SaveExtensions-Unity)](https://github.com/Skyzi000/MessagePack-SaveExtensions-Unity/blob/main/LICENSE.md)

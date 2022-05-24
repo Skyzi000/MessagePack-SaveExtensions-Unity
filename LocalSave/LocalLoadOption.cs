@@ -20,11 +20,18 @@ namespace Skyzi000.MessagePack.LocalSave
         public bool RestoreFromBackupOnFailure { get; set; } = true;
 
         /// <summary>
-        /// 読み込みに失敗した場合かつ<see cref="Local.BaseDirectoryPath"/>が<see cref="Local.DefaultBaseDirectoryPath"/>と異なる場合は、
-        /// <see cref="Local.BaseDirectoryPath"/>を<see cref="Local.DefaultBaseDirectoryPath"/>に変更して読み込み直す
+        /// 読み込みに失敗した場合かつ<see cref="Local.SavedBaseDirectoryPath"/>が<see cref="Local.DefaultBaseDirectoryPath"/>と異なる場合は、
+        /// <see cref="Local.SavedBaseDirectoryPath"/>を<see cref="Local.DefaultBaseDirectoryPath"/>に変更して読み込み直す
         /// </summary>
         [Key(1)]
         [field: SerializeField, Tooltip("読み込みに失敗した場合かつベースディレクトリが規定のディレクトリと異なる場合に、設定を規定のディレクトリに変更して読み込み直す")]
         public bool ResetBaseDirectoryOnFailure { get; set; } = true;
+
+        /// <summary>
+        /// 保存されたベースディレクトリパスを利用する(falseなら常にデフォルトのベースディレクトリパスで読み込む)
+        /// </summary>
+        [Key(2)]
+        [field: SerializeField, Tooltip("保存されたベースディレクトリパスを利用する(falseなら常にデフォルトのベースディレクトリパスで読み込む)")]
+        public bool UseSavedBaseDirectoryPath { get; set; } = true;
     }
 }

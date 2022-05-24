@@ -39,7 +39,7 @@ namespace Skyzi000.MessagePack.LocalSave
             directoryName ??= data.DirectoryName;
             fileName ??= data.FileName;
             option ??= LocalSaveOption.Default;
-            var filePath = GetFilePath(directoryName, fileName);
+            var filePath = GetFilePath(option.SaveSavedPathToPlayerPrefs ? SavedBaseDirectoryPath : DefaultBaseDirectoryPath, directoryName, fileName);
             Log($"LocalSave: '{filePath}'");
             var tempPath = $"{filePath}{TempFileExtension}";
             var tempFile = new FileInfo(tempPath);

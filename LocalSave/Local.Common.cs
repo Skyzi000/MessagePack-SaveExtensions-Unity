@@ -15,14 +15,14 @@ namespace Skyzi000.MessagePack.LocalSave
     public static partial class Local
     {
         /// <summary>
-        /// 既定の<see cref="BaseDirectoryPath"/>
+        /// 既定の<see cref="SavedBaseDirectoryPath"/>
         /// </summary>
         public static string DefaultBaseDirectoryPath => Application.persistentDataPath;
 
         /// <summary>
         /// ローカルセーブファイルのベースディレクトリパス(キャッシュされた上でPlayerPrefsに保存される)
         /// </summary>
-        public static string BaseDirectoryPath
+        public static string SavedBaseDirectoryPath
         {
             get
             {
@@ -43,7 +43,7 @@ namespace Skyzi000.MessagePack.LocalSave
         private static string? _baseDirectoryPath = null;
 
         /// <summary>
-        /// <see cref="PlayerPrefs"/>とキャッシュ(<see cref="_baseDirectoryPath"/>)に保存された<see cref="BaseDirectoryPath"/>を削除して
+        /// <see cref="PlayerPrefs"/>とキャッシュ(<see cref="_baseDirectoryPath"/>)に保存された<see cref="SavedBaseDirectoryPath"/>を削除して
         /// <see cref="DefaultBaseDirectoryPath"/>にリセットする
         /// </summary>
         /// <param name="newBaseDirectoryPath"><see cref="DefaultBaseDirectoryPath"/>の代わりに<see cref="_baseDirectoryPath"/>に設定するパス</param>
@@ -68,19 +68,21 @@ namespace Skyzi000.MessagePack.LocalSave
         /// <summary>
         /// ローカルファイルのパス
         /// </summary>
+        /// <param name="baseDirectoryPath">ベースディレクトリパス</param>
         /// <param name="directoryName">ディレクトリ名</param>
         /// <param name="fileName">ファイル名</param>
         /// <returns>ファイルパス</returns>
-        private static string GetFilePath(string directoryName, string fileName) =>
-            Path.Combine(BaseDirectoryPath, directoryName.ToLower(CultureInfo.InvariantCulture), fileName.ToLower(CultureInfo.InvariantCulture));
+        private static string GetFilePath(string baseDirectoryPath, string directoryName, string fileName) =>
+            Path.Combine(baseDirectoryPath, directoryName.ToLower(CultureInfo.InvariantCulture), fileName.ToLower(CultureInfo.InvariantCulture));
 
         /// <summary>
         /// ローカルディレクトリのパス
         /// </summary>
+        /// <param name="baseDirectoryPath">ベースディレクトリパス</param>
         /// <param name="directoryName">ディレクトリ名</param>
         /// <returns>ディレクトリパス</returns>
-        private static string GetDirectoryPath(string directoryName) =>
-            Path.Combine(BaseDirectoryPath, directoryName.ToLower(CultureInfo.InvariantCulture));
+        private static string GetDirectoryPath(string baseDirectoryPath, string directoryName) =>
+            Path.Combine(baseDirectoryPath, directoryName.ToLower(CultureInfo.InvariantCulture));
 
         /// <summary>
         /// シリアライズしてからデシリアライズすることでディープコピーを作成する

@@ -31,13 +31,15 @@ namespace Skyzi000.MessagePack.LocalSave
         /// <summary>
         /// ローカルセーブディレクトリを削除する
         /// </summary>
-        /// <param name="directoryName">削除するディレクトリ名(nullなら<see cref="BaseDirectoryPath"/>になる)</param>
+        /// <param name="directoryName">削除するディレクトリ名(nullなら<see cref="SavedBaseDirectoryPath"/>になる)</param>
         /// <param name="recursive">空でない場合、再帰的に削除するか</param>
+        /// <param name="savedBaseDirectoryPath">保存されたベースディレクトリパスを参照する</param>
         /// <returns>成功ならtrue</returns>
         [PublicAPI]
-        public static bool DeleteDirectory(string? directoryName, bool recursive)
+        public static bool DeleteDirectory(string? directoryName, bool recursive, bool savedBaseDirectoryPath = true)
         {
-            var dirPath = directoryName == null ? BaseDirectoryPath : GetDirectoryPath(directoryName);
+            var baseDir = savedBaseDirectoryPath ? SavedBaseDirectoryPath : DefaultBaseDirectoryPath;
+            var dirPath = directoryName == null ? baseDir : GetDirectoryPath(baseDir, directoryName);
             try
             {
                 Directory.Delete(dirPath, recursive);
@@ -55,11 +57,12 @@ namespace Skyzi000.MessagePack.LocalSave
         /// </summary>
         /// <param name="directoryName">削除するディレクトリ名</param>
         /// <param name="fileName">削除するファイル名</param>
+        /// <param name="savedBaseDirectoryPath">保存されたベースディレクトリパスを参照する</param>
         /// <returns>成功ならtrue</returns>
         [PublicAPI]
-        public static bool DeleteFile(string directoryName, string fileName)
+        public static bool DeleteFile(string directoryName, string fileName, bool savedBaseDirectoryPath = true)
         {
-            var filePath = GetFilePath(directoryName, fileName);
+            var filePath = GetFilePath(savedBaseDirectoryPath ? SavedBaseDirectoryPath : DefaultBaseDirectoryPath, directoryName, fileName);
             try
             {
                 File.Delete(filePath);

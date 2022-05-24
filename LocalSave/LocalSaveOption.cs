@@ -31,5 +31,12 @@ namespace Skyzi000.MessagePack.LocalSave
         [Key(2)]
         [field: SerializeField, Tooltip("一時ファイルで置き換えた後に、書き込んだデータが正しいか検証する")]
         public bool VerifyAfterReplacement { get; set; } = true;
+
+        /// <summary>
+        /// 保存したパスを<see cref="PlayerPrefs"/>に保存する(<see cref="LocalLoadOption.ResetBaseDirectoryOnFailure"/>に必要)
+        /// </summary>
+        [Key(3)]
+        [field: SerializeField, Tooltip("保存したパスをPlayerPrefsに保存する(ResetBaseDirectoryOnFailureに必要)")]
+        public bool SaveSavedPathToPlayerPrefs { get; set; } = false;
     }
 }

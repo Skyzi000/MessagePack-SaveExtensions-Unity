@@ -24,8 +24,8 @@ namespace Skyzi000.MessagePack.LocalSave
         /// <inheritdoc cref="LocalLoad{T}(T,LocalLoadOption)"/>
         /// </summary>
         /// <param name="data">現在のデータ(勝手に更新されない)</param>
-        /// <param name="directoryName">読み込むディレクトリ名(指定した場合は、<see cref="data"/>に設定されている<see cref="ISerializable.DirectoryName"/>は無視される)</param>
-        /// <param name="fileName">読み込むファイル名(指定した場合は、<see cref="data"/>に設定されている<see cref="ISerializable.FileName"/>は無視される)</param>
+        /// <param name="directoryName">読み込むディレクトリ名(指定した場合は、<see cref="data"/>に設定されている<see cref="ILocalSaveData.DirectoryName"/>は無視される)</param>
+        /// <param name="fileName">読み込むファイル名(指定した場合は、<see cref="data"/>に設定されている<see cref="ILocalSaveData.FileName"/>は無視される)</param>
         /// <param name="option">設定</param>
         /// <returns><inheritdoc cref="LocalLoad{T}(T,LocalLoadOption)"/></returns>
         [Pure, PublicAPI]
@@ -59,7 +59,8 @@ namespace Skyzi000.MessagePack.LocalSave
                 throw new ArgumentException("Value cannot be null or empty.", nameof(directoryName));
             if (string.IsNullOrEmpty(fileName))
                 throw new ArgumentException("Value cannot be null or empty.", nameof(fileName));
-            return Load<T>(GetFilePath(directoryName, fileName), option);
+            option ??= LocalLoadOption.Default;
+            return Load<T>(GetFilePath(option.UseSavedBaseDirectoryPath ? SavedBaseDirectoryPath : DefaultBaseDirectoryPath, directoryName, fileName), option);
         }
 
         [CanBeNull, Pure]
@@ -106,14 +107,14 @@ namespace Skyzi000.MessagePack.LocalSave
             {
                 var defaultBasePath = DefaultBaseDirectoryPath;
                 // リセットしないならdefault(null)を返す
-                if (!option.ResetBaseDirectoryOnFailure || BaseDirectoryPath == defaultBasePath)
+                if (!option.ResetBaseDirectoryOnFailure || SavedBaseDirectoryPath == defaultBasePath)
                     return default;
 
                 // リセットして、今度はリセットしないように設定を変更してからロードし直し
                 LocalLoadOption tempOption;
                 try
                 {
-                    LogWarning($"Reset the {nameof(BaseDirectoryPath)}({BaseDirectoryPath}) to {defaultBasePath}");
+                    LogWarning($"Reset the {nameof(SavedBaseDirectoryPath)}({SavedBaseDirectoryPath}) to {defaultBasePath}");
                     ResetBaseDirectoryPath(defaultBasePath);
                     tempOption = option.DeepCopy() ?? new LocalLoadOption();
                 }
